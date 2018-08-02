@@ -1,12 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 
-const loaders = {
-  css: {
-    loader: 'css-loader'
-  }
-}
-
 module.exports = { 
   entry: './src/index.js',
   output: {
@@ -24,7 +18,10 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: loaders.css
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" }
+        ]
   }
     ]
 }
